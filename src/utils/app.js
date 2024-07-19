@@ -16,9 +16,5 @@ app.use(cors());
 
 // Use the upload route
 app.use('/api',uploadRouter);
-// app.post('/upload',(req,res)=>{
-//     console.log(req.body);
-//     res.json({});
-// })
 
 export default app;

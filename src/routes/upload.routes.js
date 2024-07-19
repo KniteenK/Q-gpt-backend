@@ -4,7 +4,8 @@ import upload from '../middleware/multer.middleware.js';
 
 const router = express.Router();
 
-router.post('/upload', upload.array('files'), uploadFiles);
+router.post('/upload', upload.single('files'), uploadFiles);
+
 
 //http://localhost:3000/api/upload
 
