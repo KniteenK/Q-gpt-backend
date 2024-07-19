@@ -1,18 +1,24 @@
 import express from 'express';
 import cors from 'cors';
 import uploadRouter from '../routes/upload.routes.js';
+import bodyParser from 'body-parser';
 import multer from 'multer';
 
 const app = express();
 
+
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(bodyParser.json())
 
 // Use CORS to allow requests from your frontend
 app.use(cors());
 
 // Use the upload route
-app.use('/api', uploadRouter);
-
+app.use('/api',uploadRouter);
+// app.post('/upload',(req,res)=>{
+//     console.log(req.body);
+//     res.json({});
+// })
 
 export default app;
