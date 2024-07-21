@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import uploadRouter from '../routes/upload.routes.js';
 import bodyParser from 'body-parser';
+import authRouter from '../routes/auth.routes.js';
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.use(cors());
 
 // Use the upload route
 app.use('/api',uploadRouter);
+app.use('/auth' , authRouter) ;
 
 export default app;
