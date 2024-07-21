@@ -2,14 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import uploadRouter from '../routes/upload.routes.js';
 import bodyParser from 'body-parser';
-import multer from 'multer';
 
 const app = express();
 
-
-// Middleware to parse JSON bodies
-app.use(express.json());
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Use CORS to allow requests from your frontend
 app.use(cors());

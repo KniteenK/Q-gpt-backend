@@ -1,10 +1,9 @@
 import multer from "multer";
 
-const storage = multer.memoryStorage();
+const storage = multer.memoryStorage() ;
 
 const upload = multer({
-    storage: storage,
-    
+    storage : storage,
     limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10 MB
     fileFilter: (req, file, cb) => {
         const validTypes = ['application/json', 'text/csv'];
@@ -12,6 +11,7 @@ const upload = multer({
             cb(null, true);
             console.log(file.mimetype) ;
         } else {
+            console.log("Hello Hello") ;
             cb(new Error('Invalid file type. Only JSON and CSV files are allowed.'));
         }
     }

@@ -1,17 +1,15 @@
 const uploadFiles = (req, res) => {
-    const files = req.body;
-    // console.log(files);
-    if (!files) {
-        
-        return res.status(400).send('No files were uploaded.');
+    if (!req.file) {
+        return res.status(400).send('No file was uploaded.');
     }
 
-    files.forEach(file => {
-        console.log('Received file:', file.x);
-        // Process file.buffer here
-    });
+    const file = req.file;
 
-    res.status(200).send('Files uploaded and processed successfully.');
+    console.log('Received file:', file);
+
+    // Process file.buffer here
+
+    res.status(200).send('File uploaded and processed successfully.');
 };
 
 export { uploadFiles };
