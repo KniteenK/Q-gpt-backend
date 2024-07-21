@@ -1,5 +1,6 @@
 import admin from '../utils/firebase.js' ;
 import axios from 'axios' ;
+// import {signout} from 'firebase/auth'
 
 const login = async (req , res) => {
     const {email , password} = req.body ;
@@ -17,7 +18,7 @@ const login = async (req , res) => {
 
         // Generate a custom token using Firebase Admin SDK
         const customToken = await admin.auth().createCustomToken(localId);
-        return res.status(200).json({ token: customToken });
+        return res.status(200).json({ token: customToken }) ;
 
       } catch (error) {
         return res.status(400).json({ message: error });
@@ -38,8 +39,7 @@ const signup = async (req , res) => {
     catch (error) {
         return res.status(400).json({error : error.message}) ;
     }
-
-
 }
+
 
 export { login, signup };
