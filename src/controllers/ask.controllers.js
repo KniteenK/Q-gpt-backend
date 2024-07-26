@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const ask = async (req, res) => {
-  console.log(req.body.messages[0].content);
   
   const options = {
     method: 'POST',
